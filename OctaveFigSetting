@@ -1,0 +1,4 @@
+xlabel('\bf K_{sym}(MeV)','FontSize',18);ylabel('\bf J_{sym}(MeV)','FontSize',18);
+set(gca,'Box','on','xminortick','on','yminortick','on','TickDir','Out','TickLength',[.02 0]);
+set(gca,'LineWidth',3,'fontsize',18,'fontweight','bold');
+title('\bf J_0=200MeV','fontsize',18);
