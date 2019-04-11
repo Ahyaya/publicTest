@@ -2,6 +2,8 @@
 
 ./steamcmd.sh
 
+login anonymous
+
 app_update 222860
 
 quit
