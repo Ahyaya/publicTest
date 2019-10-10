@@ -1,6 +1,5 @@
-g=DiagonalMatrix[{1,r^2,r*r*Sin[th]*Sin[th]}];
-x={r,fi,th};
+g=DiagonalMatrix[{-(1-2*M/r),1/(1-2*M/r),r^2,r*r*Sin[th]*Sin[th]}];
+x={t,r,fi,th};
 
 upg=Inverse[g];indexmax=Length[x];backup=ToString[upg]
 gamma=0;Do[Do[Do[Do[gamma+=1/2*upg[[rho,sig]]*(D[g[[sig,nu]],x[[mu]]]+D[g[[mu,sig]],x[[nu]]]-D[g[[mu,nu]],x[[sig]]]);upg=ToExpression[backup],{sig,1,indexmax}];Print["Γ^",rho-1,"_",mu-1,nu-1,"=",gamma];gamma=0,{nu,1,indexmax}],{mu,1,indexmax}],{rho,1,indexmax}];
-
