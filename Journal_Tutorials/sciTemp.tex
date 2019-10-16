@@ -1,0 +1,132 @@
+\documentclass[aps,prl,a4paper,twocolumn,floats,amsmath,amssymb,nofootinbib,showpacs]{revtex4-1}
+
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{appendix}
+
+\begin{document}
+
+\title{Suitable resolution for EOS tables in neutron star investigation}
+
+\author{Houyuan Chen}
+\affiliation{School of Physics and Optoelectronic Technology, South China University of
+Technology, Guangzhou 510641, P.R. China}
+
+\author{Dehua Wen\footnote{Corresponding author. wendehua@scut.edu.cn}}
+\affiliation{School of Physics and Optoelectronic Technology, South China University of
+Technology, Guangzhou 510641, P.R. China}
+
+\author{Na Zhang}
+\affiliation{School of Physics and Optoelectronic Technology, South China University of
+Technology, Guangzhou 510641, P.R. China}
+
+\date{\today}
+
+
+\begin{abstract}
+Inasmuch as the hydrostatic structure of interior neutron stars uniquely depends on the equation of state (EOS), the inverse constraints on EOS from astrophysical observation have been important methods to reveal the properties of the high-density matter. Up to date, most of EOSs for neutron-star matter are given in tabulations, but these numeric tables could be quite different in resolution. To guarantee both the accuracy and efficiency in computing Tolman-Oppenheimer-Volkoff (TOV) equation, a concise standard for generating EOS tables with suitable resolution is investigated in this work. Via massive instances and comparisons, it is shown that the EOS tables with 50 points logarithmic-uniformly located at supra-nuclear density segment ( $\rho_{0} \sim 10 \rho_{0} $, where $\rho_{0}$ is the nuclear saturation density) would correspond to the interpolation-induced errors at $\sim 0.02\%$ for gravitational mass $M$ and $\sim 0.2\%$ for tidal deformability $\Lambda$.
+
+\end{abstract}
+
+\pacs{97.60.Jd;04.40.Dg;26.60.Dd;26.60.Gj}
+
+
+\maketitle
+
+
+\section{Introduction}
+
+The pulsars in observation are generally considered as neutron stars in theory. There is maximum mass ($M_{max}$) for a neutron star to delimit whether it is hydrostatic stable or it will finally collapse into a black hole through the oscillation process \cite{Wen2019}. Most of observed neutron stars have mass around 1.4 solar masses ($\rm{M}_{\odot}$), and PSR J0348+0432 with a mass of $2.01 \pm 0.04 \, \rm{M}_{\odot}$ is the heaviest one which has been accurately measured \cite{Kiziltan2013,Antoniadis2012,Jacoby2006}. In theoretical perspectives, the macroscopic properties of neutron stars depend strongly on the equation of state (EOS) of high-density matter. The current theoretical constraints on the $M_{max}$ are far from uniform. Recent constraints extracted from the observation of gravitational waves (GW170817) on the  maximum mass are $M_{max} < 2.17\rm{M}_{\odot}$, and on the radius of a canonical neutron star are $11.0 < R_{1.4}/ \rm{km} < 13.2$.
+
+Lots of pioneering works have been done to predict the gravitational waves emitted from a binary neutron star (BNS) system. The numeric simulations of BNS mergers \cite{Kim2005,Shen2012}, which are various with different choices of the EOSs, have illustrated possibility for probing indirectly the properties of neutron-star matter from gravitational waves (GWs). Postnikov \emph{et al.} pointed out that the dimensionless tidal deformability $\Lambda$, which can be revealed from the GW signals during inspiral process of BNS, is capable of characterizing different EOSs. On August 17, 2017, the LIGO and Virgo observatories have made the first GW detection of BNS coalescence (GW170817), of which the combined tidal deformability was constrained to $\Lambda_{1.4}  < 800$ for canonical neutron stars from the first analysis. An improved analysis of the GW170817 provided both the upper and lower limits for the tidal deformability as ${\Lambda _{1.4}} = 190_{ - 120}^{ + 390}$, which leads to a constraint on the EOS at twice nuclear saturation density as $p(2{\rho _0}) = 21.85_{ - 10.61}^{ + 16.85} \, \rm{MeV/fm^3}$. With observational constraints on $\Lambda$, Most \emph{et al.} generated millions of EOSs from their parameterized sets and then exploited more than $10^{9}$ equilibrium models for neutron stars to measure the typical radius ${R_{1.4}} = 12.39_{ + 1.06}^{ - 0.39}$ $\textrm{km}$ at $2\sigma $ level.
+
+The theoretical determination of $\Lambda  = (2/3){({c^2}/G)^5}{(R/M)^5}{k_2}$ requires precise inner solutions of the Tolman-Oppenheimer-Volkoff (TOV) equation. The relevant tidal Love number $k_2$ is determined by the hydrostatic distribution of the stars. The tidal deformability $\Lambda$ deduced from $k_2$ can be used to discriminate the EOSs, by contrasting to GW observation of BNS merger.
+On the other hand, there is no unified model yet to describe the EOS of the compressed matters. Even in a specific model, it generally takes complex computation to provide the $\rho-\varepsilon-p$ relation, where $\rho$ is the baryon number density, $\varepsilon$ is the energy density and $p$ is the pressure. Therefore, numeric EOS tables become a convenient choice in neutron star study. For the realistic EOSs (that is, the tabular EOSs), the solutions of stellar structure have to be given by numerical integration.
+
+In the integration process, the single-step errors must be restrained to provide accurate results of $k_2$. By contrast, different from the integration errors that can be handled simply with shorter step-sizes, the interpolation-induced errors are mainly affected by the resolution of EOS tables. Nonetheless, when employing a huge number of EOSs to investigate the neutron-star characteristics by Bayesian methods, the efficiency of the interpolation is of crucial important. The too large-size EOS tables are thus unpractical in these statistical studies. Therefore, the suitable resolution for EOS tables can be significant in neutron-star investigations.
+
+This paper is organized as follows. In Sec.$\,$II, a brief introduction of some pragmatic techniques to deal with both the integration and the interpolation is given first. Then two widely-used interpolation methods are introduced to inspect the interpolation-induced errors from EOS tables with different resolution under the most common mesh. The minimal size of an EOS table to provide accurate results of $M$ and $\Lambda$ is also discussed in this section. In Sec.$\,$III, we extend the investigation onto different meshing methods for EOS tables to further examine the model-dependence of the discussion. At the end, a concise summary will be given.
+
+\begin{figure}
+\centering
+\includegraphics [width=0.4\textwidth]{resP.eps}
+\caption{ \label{resP} The percentage local residuals for both ordinary and adaptive RK-4. The percentage local residuals are defined as the errors of the pressure increments in each step, divided by the precise values of pressure increments. The dash line is RK-4 computed with a fixed step-size $h=10\textrm{(m)}$ while the solid line applies adaptive step-size. The slant line pattern denotes the objective local residual as the adaptive reference. The central density of the two instances is $4 \rho_0$ and the EOS is APR.}
+\end{figure}
+
+As we know, the mass results are most sensitive to the EOS of the star's central region. As shown in Tab.$\,$\ref{Umesh}, the overall smaller $resM$ indicate that PCHIP interpolation have advantages over linear interpolation. The precision of $\Lambda$ is affected simultaneously by $k_2$, $M$ and $R$. Under $U$-grid the precision of $k_2$ is generally on the same order of $M$ and their relative residuals can be estimated as rough views of the hydrostatic solution precision. The radial errors are mainly related to the integrational step-size which we will not discuss in detail, but as a conclusion the relative errors of $R$ is $\sim 0.01\%$ for the four EOS tables in Tab.$\,$\ref{Umesh}. Therefore, for APR-20(200) and APR-20(400), which assure $resR \ll resM$ and $resk_2 \sim resM$, the Love-number relative residuals are $\sim 6 \, resM$, according to the definition.
+Our calculation shows that for both the PCHIP and linear interpolation, EOS tables with denser data-points at high density side would significantly decrease both the mass residuals and the Love number residuals. The data-point amount of APR-20(200) is the same as APR-50(200), however, APR-50(200) produces much more precise outcomes because of better resolution at high density side. On the other hand, through comparing the data of APR-20(400) and APR-20(200) in Tab.$\,$\ref{Umesh}, it is shown that the resolution improvement at low density  can not remarkably reduce the interpolation-induced errors.
+
+The comparisons indicate that the resolution of EOS table at supra-nuclear density is much more important than the total amount of data-points. In addition, we notice that the too small-size EOS table APR-50(100) would violate the approximation that $resk_2 \sim resM$, rendering the drop of $\Lambda$ precision, especially for the low-mass stars. With some more trials on the resolution at the both density segments, the minimal scale for $U$-grid APR EOS is finally determined as 50(150) which correspond to the interpolation-induced errors $\sim 0.02\%$ for $M$ and $\sim0.2\%$ for $\Lambda$.
+
+Actually, lots of EOSs in the literatures prefer to adopt the table scale around 20(200) under $U$-grid, such as SFHo, GShen and LS EOSs. The interpolation-induced errors for the stellar mass $M$ produced by these EOS tables are expected to be $0.1\% \sim 1\%$. According to above discussion, it is suggested that when we produce the EOS table, it is better to contain more than 50 grid points at supra-nuclear density segment ($\rho_0 \sim 10\rho_0$). That would significantly reduce the interpolation-induced errors and thus result in much more precise solutions for such as the stellar mass $M$ and tidal deformability $\Lambda$.
+
+
+\begin{acknowledgements}
+We would like to thank Bao-An Li for helpful discussions. This work is supported by the National Natural Science Foundation of China (No.11722546 and No.11275073), talent program of South China University of Technology (No. K5180470). This project is sponsored by CSC and has made use of NASA's Astrophysics Data System.
+
+\end{acknowledgements}
+
+%\newpage
+
+\bibliographystyle{unsrt}
+\bibliography{library.bib}
+
+
+\appendix
+
+\section{piecewise-cubic-hermite-interpolation}
+Varying with the specific method to give the boundary slopes $k_n$ and $k_{n+1}$, there are countless executions of Hermite interpolation, and the one used in this paper is a specified weighted average of differential slopes as its nodal slopes $k_n$ to preserve the shape of interpolated function from the origin data-points. The expression of nodal slopes $k_n$ for inner-points and endpoints are separately given in Eqs. (\ref{pchipinnerpoint})-(\ref{pchipendpoint}).
+
+Generally, $k_{n}$ at each knot is uniquely determined by differential aspects of proximal points. Hermite interpolation therefore ensures the first derivative $dp/d\varepsilon$ is continuous everywhere. We denote the right differential step of $\varepsilon_n$ as $h_n=\varepsilon_{n+1} - \varepsilon_n$ and the right differential slope as $\nu_n=(p_{n+1}-p_n)/h_n$. When $sgn(\nu_{n-1}) \ne sgn(\nu_{n})$, we choose $k_n = 0$ so that the extremum of data-points could be coincident with that of interpolated function, although it is not very likely to have $sgn(\nu_{n-1}) \ne sgn(\nu_{n})$ within a rigorous EOS. In the general case, $k_n$ of the inner-points are given as,
+\begin{equation} \label{pchipinnerpoint}
+\begin{array}{l}
+\widetilde {{\nu _n}} = \frac{{{h_{n - 1}}{\nu _{n - 1}} + {h_n}{\nu _n}}}{{{h_{n - 1}} + {h_n}}}\\
+{k_n} = \frac{{3{\nu _{n - 1}}{\nu _n}}}{{{\nu _{n - 1}} + {\nu _n} + \widetilde {{\nu _n}}}}
+\end{array}
+\end{equation}
+
+Slopes estimation at the two endpoints $k_1$ and $k_{end}$ are slightly different from that at inner-points. We denote the differential step from an endpoint to its nearest neighbour as $h_{1*}=\varepsilon_{1*}-\varepsilon_{1,end}$, and denote that from nearest neighbour to sub neighbour as $h_{2*}=\varepsilon_{2*}-\varepsilon_{1*}$, while the corresponding differential slopes are $\nu _{1*}=(p_{1*}-p_{1,end})/h_{1*}$ and $\nu _{2*}=(p_{2*}-p_{1*})/h_{2*}$. In the estimation, we firstly give $k_{1,end}$ as Eq.$\,$(\ref{pchipendpoint}). If $sgn(k_{1,end}) \ne sgn(\nu_{1*})$ we choose $k_{1,end}=0$, else, if $sgn(\nu_{1*}) \ne sgn(\nu_{2*})$ and $\left| k_{1,end} \right| > \left| 3\nu_{1*} \right|$ we choose $k_{1,end}=3\nu_{1*}$, and only when all the judgements above are false $k_{1,end}$ remains invariant.
+\begin{equation} \label{pchipendpoint}
+{k_{1,end}} = \frac{{\left( {2{h_{1*}} + {h_{2*}}} \right){\nu _{1*}} - {h_{1*}}{\nu _{2*}}}}{{{h_{1*}} + {h_{2*}}}}
+\end{equation}
+
+The specific rules to give $k_{n}$ above are designed to preserve monotony and avoid overshooting, as the interpolated EOSs are generally expected to be not oscillatory and baratropic.
+
+\begin{table}[!htbp]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{ \multirow{2}*{Exact} } & \multicolumn{4}{c|}{APR-20(200)} & \multicolumn{4}{c|}{APR-50(200)}\\
+\cline{3-10}
+\multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{Linear} & \multicolumn{2}{c|}{PCHIP} & \multicolumn{2}{c|}{Linear} & \multicolumn{2}{c|}{PCHIP}\\
+\hline
+ $\rho_c(\rho_0)$ & $M(M_{\odot})$ & $resM(\%)$ & $res\Lambda(\%)$ & $resM(\%)$ & $res\Lambda(\%)$ & $resM(\%)$ & $res\Lambda(\%)$ & $resM(\%)$ & $res\Lambda(\%)$\\
+\hline
+3.3377&1.0900 	&0.0669	&0.3517	&0.0887	&0.4766	&0.0186	&0.0624	&0.0135	&0.0525\\
+4.0071&1.4000	&0.4114	&2.8483	&0.3859	&2.4134	&0.0458	&0.3946	&0.0284	&0.2269\\
+4.6828&1.6500 	&0.2489	&1.4483	&0.1259	&0.6086	&0.0496	&0.4255	&0.0253	&0.2667\\
+6.7543&2.0500 	&0.0562	&0.2848	&0.0104	&0.0797	&0.0232	&0.1820	&0.0108	&0.1404\\
+\hline
+\multicolumn{2}{|c|}{ \multirow{2}*{Exact} } & \multicolumn{4}{c|}{APR-20(400)} & \multicolumn{4}{c|}{APR-50(100)}\\
+\cline{3-10}
+\multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{Linear} & \multicolumn{2}{c|}{PCHIP} & \multicolumn{2}{c|}{Linear} & \multicolumn{2}{c|}{PCHIP}\\
+\hline
+ $\rho_c(\rho_0)$ & $M(M_{\odot})$ & $resM(\%)$ & $res\Lambda(\%)$ & $resM(\%)$ & $res\Lambda(\%)$ & $resM(\%)$ & $res\Lambda(\%)$ & $resM(\%)$ & $res\Lambda(\%)$\\
+\hline
+3.3377&1.0900 	&0.0672	&0.3788	&0.0894	&0.4812	&0.0298	&0.8041	&0.0130	&0.3395\\
+4.0071&1.4000	&0.4066	&2.8416	&0.3816	&2.4207	&0.0465	&0.4866	&0.0404	&0.3764\\
+4.6828&1.6500 	&0.2313	&1.4434	&0.1251	&0.6026	&0.0537	&0.5554	&0.0408	&0.4020\\
+6.7543&2.0500 	&0.0562	&0.2882	&0.0103	&0.0758	&0.0208	&0.2742	&0.0114	&0.0917\\
+\hline
+\end{tabular}
+\caption{Relative residuals of the two interpolation methods.}\label{Umesh}
+\end{table}
+
+
+\end{document}
