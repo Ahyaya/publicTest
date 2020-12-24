@@ -13,7 +13,8 @@ sudo dnf upgrade
 sudo dnf install gstreamer gstreamer-ffmpeg gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-bad-nonfree gstreamer-plugins-base gstreamer-plugins-good gstreamer-plugins-ugly gstreamer-plugin-crystalhd gstreamer1-plugins-bad-freeworld gstreamer1-plugins-bad-free gstreamer1-plugins-good gstreamer1-libav
 
 #install generic compilers and tools
-sudo dnf install vim screen gcc curl octave octave-devel python3-pip
+sudo dnf install vim screen gcc curl java-latest-openjdk
+sudo dnf install octave octave-devel python3-pip make
 
 #install generic compilers and tools
 sudo dnf install ffmpeg libpng15 kolourpaint
@@ -23,3 +24,6 @@ sudo dnf install texlive texlive-ctex texlive-cjk texlive-cjkpunct texlive-fando
 
 #some entertainment software
 #sudo dnf install steam qtox
+pip3 install sympy --user
+pip3 install numpy --user
+sudo dnf install octave-io octave-netcdf octave-symbolic octave-statistics octave-optim
